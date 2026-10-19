@@ -3,12 +3,9 @@ import type { ICredentialType, INodeProperties } from 'n8n-workflow';
 export class IntervenioOAuth2Api implements ICredentialType {
 	name = 'intervenioOAuth2Api';
 
-	extends = ['oAuth2Api'];
-
 	displayName = 'Intervenio OAuth2 API';
 
-	// Link to your community node's README
-	documentationUrl = 'https://github.com/org/-intervenio?tab=readme-ov-file#credentials';
+	extends = ['oAuth2Api'];
 
 	properties: INodeProperties[] = [
 		{
@@ -21,7 +18,13 @@ export class IntervenioOAuth2Api implements ICredentialType {
 			displayName: 'Access Token URL',
 			name: 'accessTokenUrl',
 			type: 'hidden',
-			default: 'https://api.example.com/oauth/token',
+			default: 'https://app.interven.io/o/token/',
+		},
+		{
+			displayName: 'Authentication',
+			name: 'authentication',
+			type: 'hidden',
+			default: 'body',
 		},
 		{
 			displayName: 'Auth URI Query Parameters',
@@ -33,13 +36,7 @@ export class IntervenioOAuth2Api implements ICredentialType {
 			displayName: 'Scope',
 			name: 'scope',
 			type: 'hidden',
-			default: 'users:read users:write companies:read',
-		},
-		{
-			displayName: 'Authentication',
-			name: 'authentication',
-			type: 'hidden',
-			default: 'body',
+			default: '',
 		},
 	];
 }
