@@ -9,12 +9,12 @@
         0,
         0
       ],
-      "id": "e99b0dbd-fc23-4448-81e9-f961e5e0bd6a",
+      "id": "601e0183-9ec3-4e63-a9fe-62461240b8ac",
       "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
-        "text": "Hi there! My name is Liam from London. Could you repeat this back to me?",
+        "text": "Hi there my name is Liam!",
         "requestOptions": {}
       },
       "type": "n8n-nodes-intervenio.intervenio",
@@ -23,8 +23,8 @@
         224,
         0
       ],
-      "id": "acf7636f-5447-4a4c-b41d-a524f40791c4",
-      "name": "Intervenio",
+      "id": "b578fe79-c458-431c-8b9a-0ef453fa1577",
+      "name": "interven.io",
       "credentials": {
         "intervenioOAuth2Api": {
           "id": "CvOFDGS1WObPV83E",
@@ -45,8 +45,8 @@
         448,
         0
       ],
-      "id": "4edff543-f967-417e-84c4-7e5e1eed8566",
-      "name": "Intervenio1",
+      "id": "bf8c9818-570a-474e-8f31-4182842a2e2a",
+      "name": "interven.io1",
       "credentials": {
         "intervenioOAuth2Api": {
           "id": "CvOFDGS1WObPV83E",
@@ -61,18 +61,18 @@
       "main": [
         [
           {
-            "node": "Intervenio",
+            "node": "interven.io",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Intervenio": {
+    "interven.io": {
       "main": [
         [
           {
-            "node": "Intervenio1",
+            "node": "interven.io1",
             "type": "main",
             "index": 0
           }
@@ -85,12 +85,12 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "0aa9a6f5-d5a5-4cb5-8aa3-51acd3e060f5",
+  "versionId": "0b9f1705-bfab-40b1-9ceb-9b23ec8af094",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "890f6170a1c297627f991098a7bbe5f59077473cd6d20807b620decb1f1e7889"
   },
   "nodeGroups": [],
-  "id": "AVTyDCfCHOinw0tV",
+  "id": "FUT4rUzFKCNLBxVk",
   "tags": []
 }
