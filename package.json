@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-intervenio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple and efficient: interven.io filters traffic sent to LLMs. Reduce token costs, redact sensitive information, and gain insights on usage.",
   "license": "MIT",
   "homepage": "https://interven.io",
@@ -24,8 +24,7 @@
     "dev": "n8n-node dev",
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
-    "release": "n8n-node release",
-    "prepublishOnly": "n8n-node prerelease"
+    "release": "n8n-node release"
   },
   "files": [
     "dist"
