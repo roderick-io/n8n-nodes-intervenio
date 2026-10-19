@@ -1,0 +1,96 @@
+{
+  "name": "interven.io example workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e99b0dbd-fc23-4448-81e9-f961e5e0bd6a",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "text": "Hi there! My name is Liam from London. Could you repeat this back to me?",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-intervenio.intervenio",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "acf7636f-5447-4a4c-b41d-a524f40791c4",
+      "name": "Intervenio",
+      "credentials": {
+        "intervenioOAuth2Api": {
+          "id": "CvOFDGS1WObPV83E",
+          "name": "Intervenio account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "restore",
+        "text": "={{ $json.redacted_text }}",
+        "logId": "={{ $json.log_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-intervenio.intervenio",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "4edff543-f967-417e-84c4-7e5e1eed8566",
+      "name": "Intervenio1",
+      "credentials": {
+        "intervenioOAuth2Api": {
+          "id": "CvOFDGS1WObPV83E",
+          "name": "Intervenio account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Intervenio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intervenio": {
+      "main": [
+        [
+          {
+            "node": "Intervenio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0aa9a6f5-d5a5-4cb5-8aa3-51acd3e060f5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "890f6170a1c297627f991098a7bbe5f59077473cd6d20807b620decb1f1e7889"
+  },
+  "nodeGroups": [],
+  "id": "AVTyDCfCHOinw0tV",
+  "tags": []
+}

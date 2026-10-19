@@ -3,7 +3,7 @@ import type { ICredentialType, INodeProperties } from 'n8n-workflow';
 export class IntervenioOAuth2Api implements ICredentialType {
 	name = 'intervenioOAuth2Api';
 
-	displayName = 'Intervenio OAuth2 API';
+	displayName = 'interven.io OAuth2 API';
 
 	extends = ['oAuth2Api'];
 

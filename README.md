@@ -1,22 +1,22 @@
 # n8n-nodes-intervenio
 
-An n8n community node for Intervenio. Redact personally identifiable information before sending text to an LLM, then restore original values afterward.
+An n8n community node for interven.io. Redact personally identifiable information before sending text to an LLM, then restore original values afterward.
 
 ## How it works
 
     Input text
-      → Intervenio: Redact Text
+      → interven.io: Redact Text
       → LLM
-      → Intervenio: Restore Text
+      → interven.io: Restore Text
       → Restored text
 
-1. **Redact Text** sends the input text to Intervenio.
-2. Intervenio returns `redacted_text` and a `log_id`.
+1. **Redact Text** sends the input text to interven.io.
+2. interven.io returns `redacted_text` and a `log_id`.
 3. An LLM processes `redacted_text`.
-4. **Restore Text** sends the LLM output and the matching `log_id` to Intervenio.
-5. Intervenio returns `restored_text`.
+4. **Restore Text** sends the LLM output and the matching `log_id` to interven.io.
+5. interven.io returns `restored_text`.
 
-n8n only passes the `log_id` between Redact and Restore. The original-value mapping remains within Intervenio.
+n8n only passes the `log_id` between Redact and Restore. The original-value mapping remains within interven.io.
 
 ## Installation
 
@@ -37,7 +37,7 @@ Restart n8n after installing.
 
 ## Credentials
 
-The Intervenio credential uses OAuth 2.0 Client Credentials authentication.
+The interven.io credential uses OAuth 2.0 Client Credentials authentication.
 
 | Setting | Value |
 |---|---|
@@ -48,12 +48,18 @@ The Intervenio credential uses OAuth 2.0 Client Credentials authentication.
 
 ### Create Client Credentials
 
-> TODO: Add instructions for creating an OAuth client in the Intervenio portal, assigning permissions, and copying the Client ID and Client Secret.
+Obtain your Client Credentials from the interven.io portal at https://app.interven.io as follows:
+1. Log in using your interven.io credentials.
+2. On the left-hand side, click on "Connections".
+3. Click on "Add connection".
+4. In the pop-up, select "OAuth Client Credentials".
+5. Give the credentials an appropriate name. For instance: "n8n credentials".
+6. Store the provided client_id and client_secret securely.
 
 In n8n:
 
-1. Create an **Intervenio OAuth2 API** credential.
-2. Enter the Client ID and Client Secret from the Intervenio portal.
+1. Create an **interven.io OAuth2 API** credential.
+2. Enter the Client ID and Client Secret from the interven.io portal.
 3. Save the credential.
 
 ## Operations
@@ -105,9 +111,9 @@ Example response:
 
     Manual Trigger
       → Edit Fields
-      → Intervenio — Redact
+      → interven.io — Redact
       → LLM
-      → Intervenio — Restore
+      → interven.io — Restore
 
 ### 1. Manual Trigger
 
@@ -121,25 +127,25 @@ Example value:
 
     Draft a concise reply to Jane Doe at jane@example.com about her account.
 
-### 3. Intervenio — Redact
+### 3. interven.io — Redact
 
-Add an **Intervenio** node.
+Add an **interven.io** node.
 
 | Field | Value |
 |---|---|
 | Operation | Redact Text |
 | Text | `{{ $json.text }}` |
-| Credential | Your Intervenio OAuth2 API credential |
+| Credential | Your interven.io OAuth2 API credential |
 
 Rename this node:
 
-    Intervenio — Redact
+    interven.io — Redact
 
 The output includes `redacted_text` and `log_id`.
 
 ### 4. LLM
 
-Add your preferred LLM node after **Intervenio — Redact**.
+Add your preferred LLM node after **interven.io — Redact**.
 
 Use this as the prompt:
 
@@ -147,20 +153,20 @@ Use this as the prompt:
 
 Instruct the LLM to retain placeholders such as `<PERSON_1>` and `<EMAIL_1>` exactly. Do not allow it to remove, rename, translate, or reformat them.
 
-### 5. Intervenio — Restore
+### 5. interven.io — Restore
 
-Add a second **Intervenio** node after the LLM node.
+Add a second **interven.io** node after the LLM node.
 
 Rename it:
 
-    Intervenio — Restore
+    interven.io — Restore
 
 | Field | Value |
 |---|---|
 | Operation | Restore Text |
 | Text | The LLM response text |
-| Log ID | `{{ $('Intervenio — Redact').item.json.log_id }}` |
-| Credential | Your Intervenio OAuth2 API credential |
+| Log ID | `{{ $('interven.io — Redact').item.json.log_id }}` |
+| Credential | Your interven.io OAuth2 API credential |
 
 For an LLM node whose output text is in the `text` field, set **Text** to:
 
@@ -172,8 +178,8 @@ The result contains `restored_text`.
 
 - Use the `log_id` from the corresponding Redact operation.
 - Do not mix `log_id` values between messages or executions.
-- Preserve Intervenio placeholders through all LLM prompts and transformations.
-- Rename the two Intervenio nodes as shown if using the supplied Log ID expression.
+- Preserve interven.io placeholders through all LLM prompts and transformations.
+- Rename the two interven.io nodes as shown if using the supplied Log ID expression.
 
 ## Development
 
@@ -214,8 +220,7 @@ Requires an n8n version that supports declarative community nodes and OAuth 2.0 
 
 ## Resources
 
-- [Intervenio](https://interven.io)
-- [Intervenio API documentation](https://interven.io/docs)
+- [interven.io](https://interven.io)
 - [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
 
 ## Version History

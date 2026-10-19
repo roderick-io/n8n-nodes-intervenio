@@ -6,18 +6,15 @@ import {
 
 export class Intervenio implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Intervenio',
+		displayName: 'interven.io',
 		name: 'intervenio',
-		icon: {
-			light: 'file:intervenio.svg',
-			dark: 'file:intervenio.dark.svg',
-		},
+		icon: 'file:intervenio.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',
-		description: 'Redact and restore sensitive text through the Intervenio API',
+		description: 'Redact and restore sensitive text through interven.io',
 		defaults: {
-			name: 'Intervenio',
+			name: 'interven.io',
 		},
 		usableAsTool: true,
 		inputs: [NodeConnectionTypes.Main],
@@ -76,7 +73,7 @@ export class Intervenio implements INodeType {
 				},
 				default: '',
 				required: true,
-				description: 'The text to redact, or redacted text to restore',
+				description: 'Text to redact, or redacted text to restore',
 				routing: {
 					send: {
 						type: 'body',
@@ -90,7 +87,7 @@ export class Intervenio implements INodeType {
 				type: 'string',
 				default: '',
 				required: true,
-				description: 'The log ID returned by the Redact Text operation',
+				description: 'The Log ID returned by Redact Text',
 				displayOptions: {
 					show: {
 						operation: ['restore'],
