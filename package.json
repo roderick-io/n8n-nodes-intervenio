@@ -1,14 +1,22 @@
 {
   "name": "n8n-nodes-intervenio",
   "version": "0.1.0",
-  "description": "",
+  "description": "Simple and efficient: interven.io filters traffic sent to LLMs. Reduce token costs, redact sensitive information, and gain insights on usage.",
   "license": "MIT",
-  "homepage": "",
-  "keywords": ["n8n-community-node-package"],
-  "author": { "name": "Roderick", "email": "development@roderick.io" },
+  "homepage": "https://interven.io",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "author": {
+    "name": "interven.io",
+    "email": "development@roderick.io"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "git+https://github.com/roderick-io/n8n-nodes-intervenio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/roderick-io/n8n-nodes-intervenio/issues"
   },
   "scripts": {
     "build": "n8n-node build",
@@ -19,12 +27,18 @@
     "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "n8n": {
     "n8nNodesApiVersion": 1,
     "strict": true,
-    "credentials": ["dist/credentials/IntervenioOAuth2Api.credentials.js"],
-    "nodes": ["dist/nodes/Intervenio/Intervenio.node.js"]
+    "credentials": [
+      "dist/credentials/IntervenioOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Intervenio/Intervenio.node.js"
+    ]
   },
   "devDependencies": {
     "@n8n/node-cli": "*",
@@ -33,5 +47,7 @@
     "release-it": "^21.1.0",
     "typescript": "5.9.2"
   },
-  "peerDependencies": { "n8n-workflow": "*" }
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
 }
