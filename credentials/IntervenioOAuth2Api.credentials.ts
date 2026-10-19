@@ -5,6 +5,13 @@ export class IntervenioOAuth2Api implements ICredentialType {
 
 	displayName = 'interven.io OAuth2 API';
 
+	documentationUrl = 'https://github.com/roderick-io/n8n-nodes-intervenio#credentials';
+
+	icon = {
+		light: 'file:intervenio.svg',
+		dark: 'file:intervenio.dark.svg',
+	} as const;
+
 	extends = ['oAuth2Api'];
 
 	properties: INodeProperties[] = [

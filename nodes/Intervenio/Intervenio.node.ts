@@ -8,7 +8,10 @@ export class Intervenio implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'interven.io',
 		name: 'intervenio',
-		icon: 'file:intervenio.svg',
+		icon: {
+			light: 'file:intervenio.svg',
+			dark: 'file:intervenio.dark.svg',
+		},
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"]}}',
