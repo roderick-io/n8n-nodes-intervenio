@@ -1,17 +1,17 @@
 {
-	"node": "n8n-nodes-intervenio",
+	"node": "n8n-nodes-intervenio.intervenio",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Development"],
 	"resources": {
 		"credentialDocumentation": [
 			{
-				"url": "https://github.com/org/repo?tab=readme-ov-file#credentials"
+				"url": "https://github.com/roderick-io/n8n-nodes-intervenio#credentials"
 			}
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://github.com/org/repo?tab=readme-ov-file"
+				"url": "https://github.com/roderick-io/n8n-nodes-intervenio#readme"
 			}
 		]
 	}
